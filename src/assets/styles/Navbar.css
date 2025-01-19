@@ -1,0 +1,110 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    top: 0;
+    z-index: 1000;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: auto 1fr;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    backdrop-filter: blur(5px);
+    align-items: center;
+  }
+
+.navbar-logo {
+    width: 110px;
+    height: 50px;
+}
+
+.navbar-links {
+    font-size: 18px;
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    justify-self: end;
+    padding-right: 100px;
+}
+
+/* Cuando pasas el ratón por encima de un enlace */
+.navbar-link:hover {
+    transform: scale(1.1);
+    filter: none;
+}
+
+/* Difuminar los enlaces que no están siendo hover */
+.navbar-links:hover > .navbar-link:not(:hover) {
+    filter: blur(4px);
+    transform: scale(0.9);
+}
+
+.navbar-links a {
+    color: #d1f61d;
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 400ms;
+}
+
+.navbar-links a:hover {
+    color: #d1f61d;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.navbar-link a:hover {
+    background-color: #d1f61d;
+    color: #313538;
+}
+
+/* Ocultar el icono del menú en pantallas grandes */
+.navbar-menu-icon {
+    display: none;
+    color: #d1f61d;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+/*--------------------------------------MEDIA QUERY---------------------------------------*/
+@media (max-width: 700px) {
+    .navbar-links {
+        padding-right: 60px;
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar-links {
+        display: none; /* Ocultar los enlaces en pantallas pequeñas */
+    }
+
+    .navbar-menu-icon {
+        display: grid; /* Mostrar el icono del menú en pantallas pequeñas */
+        justify-items: end;
+        padding-right: 20px;
+        align-self: center;        
+    }
+
+    /* Mostrar los enlaces solo cuando se active el menú en pantallas pequeñas */
+    .navbar-links--active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Ajusta esto según la altura de tu navbar */
+        right: 20px;
+        background-color: #333;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .navbar-user-menu{
+        top: 300px;
+        right: 100px;
+    }
+}

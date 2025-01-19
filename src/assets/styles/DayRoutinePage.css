@@ -1,0 +1,359 @@
+.day-routine-page {
+  background-color: #191919;
+  color: white;
+  padding: 100px 0px 50px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.day-routine-page h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.start-routine-button {
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  background-color: #d1f61d;
+  color: #313538;
+  font-weight: 900;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.start-routine-button:hover{
+  box-shadow: 0 0 15px 0px #d1f61d;
+}
+
+.button-text {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button-text.hide {
+  opacity: 0;
+}
+
+.hover-svg {
+  position: absolute;
+  left: -100%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.5s ease-in-out;
+}
+
+.hover-svg.show {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.day-routine-page ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-routine-page li{
+  position: relative;
+  background-color: white;
+  color: #313538;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px 30px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.container-title-move-card{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 5px;
+}
+
+.title-routine{
+  justify-self: center;
+  text-align: center;
+}
+
+.container-button-up-down{
+  display: flex;
+  flex-direction: column;
+}
+
+.container-button-up-down svg{
+  background-color: #d1f61d;
+  border-radius: 100%;
+}
+
+.moveUp-button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.day-routine-page img{
+  width: 50%;
+  max-height: auto;
+  margin-bottom: 10px;
+}
+
+.exercise-video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.exercise-description {
+  font-size: 17px;
+  margin-bottom: 16px;
+}
+
+.container-rep{
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  gap: 10px;
+}
+
+.container-rep label{
+  width: 130px;
+}
+
+.container-rep input{
+  width: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  border: none;
+}
+
+.container-add-remove-reps{
+  width: 90px;
+}
+
+.button-series{
+  background-color: #313538;
+  color: #d1f61d;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  margin: 0px 10px 10px 0px;
+  font-weight: 900;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button-check-serie{
+  background-color: #313538;
+  color: #d1f61d;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  margin: 0px 10px 10px 0px;
+  font-weight: 900;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.button-check-serie.pressed {
+  color: orange;
+}
+
+.button-check-serie svg{
+  position: relative;
+  top: 3px;
+}
+
+.rest-container{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.rest-button, .stop-routine-button{
+  margin: 15px 0px;
+  width: 50%;
+  height: 35px;
+  background-color: #313538;
+  color: #d1f61d;
+  font-weight: 900;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.rest-button:hover, .stop-routine-button:hover{
+  background-color: #d1f61d;
+  color: #313538;
+}
+
+.remove-button-day{
+  margin-top: 20px;
+  width: 80%;
+  background-color: #313538;
+  color: orange;
+  font-weight: 900;
+}
+
+.remove-button-day:hover{
+  background-color: orange;
+  color: #313538;
+  
+}
+
+.popup {
+  width: 90%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.917);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.popup-content p{
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.close-popup {
+  width: 80%;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-exercise-button{
+  background-color: red;
+}
+
+
+
+/*____________________________________MEDIA QUERIES___________________________________________*/
+/*____________________________________1000___________________________________________*/
+@media (max-width: 1000px) {
+  .day-routine-page li{
+    width: 65%;
+  }
+  
+}
+
+/*____________________________________800___________________________________________*/
+@media (max-width: 800px) {
+  .day-routine-page li{
+    width: 75%;
+  }
+
+  .title-routine{
+    font-size: 18px;
+  }
+  
+}
+
+/*____________________________________675___________________________________________*/
+@media (max-width: 675px) {
+  .day-routine-page li{
+    width: 85%;
+    padding: 30px;
+  }
+}
+
+/*____________________________________570___________________________________________*/
+@media (max-width: 570px) {
+  .day-routine-page li{
+    width: 90%;
+    padding: 25px;
+  }
+
+  .container-rep{
+    width: 80%;
+  }
+
+  .container-add-remove-reps{
+    margin-left: -20px;
+  }
+  
+  .button-series, .button-check-serie {
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+  }
+}
+
+/*____________________________________460___________________________________________*/
+@media (max-width: 480px) {
+  .day-routine-page li{
+    padding: 15px;
+  }
+
+  .container-rep{
+    gap: 0px;
+  }
+
+  .button-series{
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+  }
+}
+
+/*____________________________________420___________________________________________*/
+@media (max-width: 420px) {
+  .day-routine-page li{
+    padding: 10px;
+  }
+
+  .container-rep{
+    gap: 0px;
+  }
+
+  .button-series{
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+  }
+}
