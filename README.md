@@ -1,4 +1,4 @@
-# 🏋️‍♂️ Gym Routines Web Page
+# 🏋️‍♂️ FITLOVER
 
 ¡Bienvenido a **FitLover**! Este proyecto es una página web diseñada para ayudarte a organizar y gestionar tus rutinas de gimnasio y de casa de manera eficiente y visualmente atractiva.
 
