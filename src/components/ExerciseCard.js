@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../assets/styles/ExerciseCard.css';
-import { Dialog, DialogActions, DialogContent, DialogTitle, Button } from '@mui/material';
 
 function ExerciseCard({ exercise, routine, addToRoutine, removeFromRoutine }) {
   const [showPopup, setShowPopup] = useState(false); // Estado para mostrar el popup
@@ -11,7 +10,6 @@ function ExerciseCard({ exercise, routine, addToRoutine, removeFromRoutine }) {
   const popupRef = useRef(null); // Referencia para el popup
   const addButtonRef = useRef(null); // Referencia para el botón de Añadir a la rutina
   const textareaRef = useRef(null); // Referencia para el textarea
-  const [confirmDelete, setConfirmDelete] = useState(null); // Cambié a `null` para indicar ningún día seleccionado
 
   // Verificar en qué días está añadido este ejercicio
   const daysInRoutine = daysOfWeek.filter(day =>
@@ -47,19 +45,6 @@ function ExerciseCard({ exercise, routine, addToRoutine, removeFromRoutine }) {
       document.removeEventListener('mousedown', handleClickOutside); // Limpiar el evento al desmontar
     };
   }, []);
-
-  // Función para abrir el popup de confirmación de eliminación
-  const handleOpenConfirmDelete = (day) => {
-    setConfirmDelete(day); // Establecer el día a eliminar
-  };
-
-  // Función para manejar la eliminación del ejercicio
-  const handleDelete = () => {
-    if (confirmDelete) {
-      removeFromRoutine(confirmDelete, exercise.id); // Eliminar del día seleccionado
-    }
-    setConfirmDelete(null); // Cerrar el popup
-  };
 
   return (
     <div className="exercise-card-container">
@@ -97,7 +82,7 @@ function ExerciseCard({ exercise, routine, addToRoutine, removeFromRoutine }) {
             }}
           >
             <span className="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#313538" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m5 11h-4v4h-2v-4H7v-2h4V7h2v4h4z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#313538" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m5 11h-4v4h-2v-4H7v-2h4V7h2v4h4z"/></svg>
             </span>
             <span className="text">Añadir</span>
           </button>
@@ -107,35 +92,13 @@ function ExerciseCard({ exercise, routine, addToRoutine, removeFromRoutine }) {
             <button
               key={day}
               className="remove-button"
-              onClick={() => handleOpenConfirmDelete(day)} // Solo abrir el popup de confirmación
+              onClick={() => removeFromRoutine(day, exercise.id)}
             >
               Eliminar del {day}
             </button>
           ))}
         </div>
       </div>
-
-      {/* Popup de confirmación de eliminación */}
-      <Dialog
-        open={Boolean(confirmDelete)} // Si hay un día en el que el ejercicio está añadido, abre el popup
-        onClose={() => setConfirmDelete(null)} // Cerrar el popup
-      >
-        <DialogTitle>Eliminar</DialogTitle>
-        <DialogContent>
-          <p>¿Seguro que deseas eliminar {exercise.name} de la rutina de {confirmDelete}?</p>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setConfirmDelete(null)} color="primary">
-            Cancelar
-          </Button>
-          <Button
-            onClick={handleDelete} // Eliminar del día seleccionado si se confirma
-            sx={{ color: 'orange' }}
-          >
-            Eliminar
-          </Button>
-        </DialogActions>
-      </Dialog>
 
       {/* Popup para elegir el día */}
       {showPopup && (

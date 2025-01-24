@@ -15,12 +15,12 @@ function App() {
     return savedRoutine
       ? JSON.parse(savedRoutine)
       : {
-        Monday: [],
-        Tuesday: [],
-        Wednesday: [],
-        Thursday: [],
-        Friday: [],
-      };
+          Monday: [],
+          Tuesday: [],
+          Wednesday: [],
+          Thursday: [],
+          Friday: [],
+        };
   };
 
   // Estado para manejar la rutina

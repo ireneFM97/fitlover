@@ -21,7 +21,7 @@
 .start-routine-button {
   position: relative;
   padding: 10px 20px;
-  margin-bottom: 30px;
+  margin: 30px 0px;
   background-color: #d1f61d;
   color: #313538;
   font-weight: 900;
@@ -122,27 +122,34 @@
 }
 
 .exercise-description {
-  font-size: 17px;
+  font-size: 16px;
   margin-bottom: 16px;
 }
 
-.container-rep{
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
-  gap: 10px;
+.observaciones{
+  font-size: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+  border: none;
+  resize: none;
 }
 
-.container-rep label{
-  width: 130px;
+.container-rep{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.container-rep-kg{
+  display: flex;
+  gap: 30px;
 }
 
 .container-rep input{
-  width: 30px;
-  margin-bottom: 10px;
-  text-align: center;
+  width: 50px;
+  margin: 0px 0px 10px 10px;
+  text-align: start;
   border: none;
 }
 
@@ -295,65 +302,57 @@
 }
 
 /*____________________________________675___________________________________________*/
-@media (max-width: 675px) {
+@media (max-width: 690px) {
   .day-routine-page li{
     width: 85%;
-    padding: 30px;
-  }
-}
-
-/*____________________________________570___________________________________________*/
-@media (max-width: 570px) {
-  .day-routine-page li{
-    width: 90%;
     padding: 25px;
   }
 
-  .container-rep{
-    width: 80%;
-  }
-
-  .container-add-remove-reps{
-    margin-left: -20px;
-  }
-  
-  .button-series, .button-check-serie {
-    width: 25px;
-    height: 25px;
-    font-size: 18px;
+  .container-rep {
+    width: 90%; /* Ajusta el ancho para incluir más espacio */
   }
 }
 
-/*____________________________________460___________________________________________*/
-@media (max-width: 480px) {
+/*____________________________________580___________________________________________*/
+@media (max-width: 580px) {
   .day-routine-page li{
+    width: 90%;
+    padding: 20px;
+  }
+
+  .button-series,
+  .button-check-serie {
+    width: 30px;
+    height: 30px;
+    font-size: 20px; /* Ajusta el tamaño del texto */
+  }
+}
+
+/*____________________________________510___________________________________________*/
+@media (max-width: 510px) {
+
+  .day-routine-page h1{
+    margin-top: 25px;
+    font-size: 35px;
+  }
+
+  .day-routine-page li {
     padding: 15px;
   }
 
   .container-rep{
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .container-rep-kg {
+    flex-direction: column;
     gap: 0px;
   }
 
-  .button-series{
+  .button-series, .button-check-serie {
     width: 25px;
     height: 25px;
-    font-size: 18px;
-  }
-}
-
-/*____________________________________420___________________________________________*/
-@media (max-width: 420px) {
-  .day-routine-page li{
-    padding: 10px;
-  }
-
-  .container-rep{
-    gap: 0px;
-  }
-
-  .button-series{
-    width: 25px;
-    height: 25px;
-    font-size: 18px;
+    font-size: 16px;
   }
 }
